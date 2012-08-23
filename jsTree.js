@@ -27,6 +27,13 @@ var jsTreeNS = new function() {
       return !(this.children);
    }
 
+   this.Tree.prototype.getNodeValue = function() {
+      if (this.nodeValue instanceof Function) {
+         return this.nodeValue();
+      } else {
+         return this.nodeValue;
+      }
+   }
    // I try to make it more functional.
    // Every input data can be both value and function.
    function getValue(value) {
