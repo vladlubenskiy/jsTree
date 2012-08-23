@@ -19,11 +19,7 @@ var jsTreeNS = new function() {
    }
 
    this.Tree.prototype.getNodeValue = function() {
-      if (this.nodeValue instanceof Function) {
-         return this.nodeValue();
-      } else {
-         return this.nodeValue;
-      }
+      getValue(this.nodeValue);
    }
 
    function validateChildren(trees) {
@@ -34,7 +30,7 @@ var jsTreeNS = new function() {
       }
       return true;
    }
-   
+
    // I try to make it more functional.
    // Every input data can be both value and function.
    function getValue(value) {
